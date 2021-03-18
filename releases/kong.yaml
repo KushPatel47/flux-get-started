@@ -21,28 +21,11 @@ spec:
           secretKeyRef:
             name: kong-enterprise-superuser-password #CHANGEME
             key: password #CHANGEME
-      admin_api_uri: "https://192.168.64.38:30712"
-      admin_gui_url: "https://192.168.64.38:32130"
-      portal_api-url: "https://192.168.64.38:31736"
-      portal_gui_host: "192.168.64.38:32610"
+      admin_api_uri: "https://192.168.64.38:32444"
+      admin_gui_url: "https://192.168.64.38:32445"
+      portal_api-url: "https://192.168.64.38:32447"
+      portal_gui_host: "192.168.64.38:32446"
       portal_gui_protocol: "https"
-      # pg_host: kong-dev-instance-1.cxctrb8czfb4.us-east-1.rds.amazonaws.com
-      # pg_port: '5432'
-      # pg_database:
-      #   valueFrom:
-      #     secretKeyRef:
-      #       name: kong-postgres-dev
-      #       key: pg_database
-      # pg_user:
-      #   valueFrom:
-      #     secretKeyRef:
-      #       name: kong-postgres-dev
-      #       key: pg_user
-      # pg_password:
-      #   valueFrom:
-      #     secretKeyRef:
-      #       name: kong-postgres-dev
-      #       key: pg_password
 
     ingressController:
       enabled: false
@@ -50,9 +33,23 @@ spec:
 
     admin:
       enabled: true
+      tls:
+        nodePort: 32444
+
+    manager:
+      enabled: true
+      tls:
+        nodePort: 32445
 
     portal:
       enabled: true
+      tls:
+        nodePort: 32446
+
+    portalapi:
+      enabled: true
+      tls:
+        nodePort: 32447
 
     postgresql:
       enabled: true
