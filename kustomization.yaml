@@ -4,3 +4,4 @@ resources:
   - ./base/namespaces/jenkins.yaml
   - ./base/namespaces/kong.yaml
   - ./base/jenkins/jenkins.yaml
+  - ./base/kong/kong.yaml
