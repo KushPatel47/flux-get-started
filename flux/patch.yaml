@@ -25,11 +25,11 @@ spec:
             - --git-email=support@weave.works
             - --git-verify-signatures=false
             - --git-set-author=false
-            - --git-poll-interval=5m
+            - --git-poll-interval=1m
             - --git-timeout=20s
-            - --sync-interval=5m
+            - --sync-interval=1m
             - --git-ci-skip=false
-            - --automation-interval=5m
+            - --automation-interval=1m
             - --registry-rps=200
             - --registry-burst=125
             - --registry-trace=false

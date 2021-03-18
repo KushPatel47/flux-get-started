@@ -1,56 +1,19 @@
-# flux-get-started
+# flux-local-minikube
+A repository that provides an introduction to using Flux on a Kubernetes cluster to install/maintain core components.
 
-## We are moving to Flux v2
+## Table of Contents
+* [Project Directory](#Project-Directory)
+* [Requirements](#Requirements)
+* [Helpful Links](#Helpful-Links)
 
-> ⚠️ Please note: In preparation of [Flux v2](https://toolkit.fluxcd.io/) GA this repository with Flux v1 examples has been archived. The Flux v2 equivalent of what is shown here can be found at [flux2-kustomize-helm-example](https://github.com/fluxcd/flux2-kustomize-helm-example).
->
-> Thanks a lot for your interest.
+## Project Directory
+In progress
 
-## For posterity
+## Requirements
+Before you begin, you'll need to fork this repository and clone the forked repo with git and change into the project directory:
+```
+$ git clone https://github.com/<YOUR-GITHUB-USER>/flux-local-minikube.git
+$ cd flux-local-minikube
+```
 
-We published a step-by-step run-through on how to use Flux and Helm Operator [over
-here](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started-helm.md).
-
-## Workloads
-
-[podinfo](https://github.com/stefanprodan/podinfo)
-* Kubernetes deployment, ClusterIP service and Horizontal Pod Autoscaler
-* init container automated image updates (regular expression filter)
-* container automated image updates (semantic versioning filter)
-
-## Helm Releases
-
-Mongodb
-* Source: Helm repository (stable)
-* Kubernetes deployment
-* automated image updates (semantic versioning filter)
-
-Redis
-* Source: Helm repository (stable)
-* Kubernetes stateful set 
-* locked automated image updates (semantic versioning filter)
-
-Ghost
-* Source: Git repository
-* disabled automated image updates (glob filter)
-* has external dependency - mariadb (stable)
-
-## Manifests Validation
-
-CircleCI [jobs](./.circleci/config.yml):
-* validate Kubernetes manifests with [kubeval](https://github.com/instrumenta/kubeval)
-* validate Flux Helm Releases with [hrval](https://github.com/stefanprodan/hrval-action)
-
-### <a name="help"></a>Getting Help
-
-If you have any questions about, feedback for or problems with `flux-get-started`:
-
-
-- Invite yourself to the <a href="https://slack.cncf.io" target="_blank">CNCF community</a>
-  slack and ask a question on the [#flux](https://cloud-native.slack.com/messages/flux/)
-  channel.
-- To be part of the conversation about Flux's development, join the
-  [flux-dev mailing list](https://lists.cncf.io/g/cncf-flux-dev).
-- [File an issue.](https://github.com/fluxcd/flux/issues/new)
-
-Your feedback is always welcome!
+## Helpful Links

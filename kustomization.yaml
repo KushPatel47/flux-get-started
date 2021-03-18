@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./namespaces/jenkins.yaml
-  - ./namespaces/kong.yaml
-  - ./releases/jenkins.yaml
-  - ./releases/kong.yaml
+  - ./base/namespaces/jenkins.yaml
+  - ./base/namespaces/kong.yaml
+  - ./base/jenkins/jenkins.yaml
