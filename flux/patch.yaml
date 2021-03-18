@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux
+  namespace: flux
+spec:
+  template:
+    spec:
+      containers:
+        - name: flux
+          args:
+            - --manifest-generation=true
+            - --log-format=fmt
+            - --ssh-keygen-dir=/var/fluxd/keygen
+            - --ssh-keygen-format=RFC4716
+            - --k8s-secret-name=flux-git-deploy
+            - --memcached-hostname=flux-memcached
+            - --sync-state=git
+            - --memcached-service=
+            - --git-url=git@github.com:KushPatel47/flux-get-started
+            - --git-branch=master
+            - --git-path=
+            - --git-readonly=false
+            - --git-user=Weave Flux
+            - --git-email=support@weave.works
+            - --git-verify-signatures=false
+            - --git-set-author=false
+            - --git-poll-interval=5m
+            - --git-timeout=20s
+            - --sync-interval=5m
+            - --git-ci-skip=false
+            - --automation-interval=5m
+            - --registry-rps=200
+            - --registry-burst=125
+            - --registry-trace=false

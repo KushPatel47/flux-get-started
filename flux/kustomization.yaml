@@ -1,0 +1,7 @@
+namespace: flux
+bases:
+  - github.com/fluxcd/flux//deploy
+patchesStrategicMerge:
+  - patch.yaml
+resources:
+  - helm-op.yaml
