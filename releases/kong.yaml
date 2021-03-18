@@ -16,48 +16,60 @@ spec:
     env:
       prefix: /kong_prefix/
       database: postgres
-      pg_host: kong-dev-instance-1.cxctrb8czfb4.us-east-1.rds.amazonaws.com
-      pg_port: '5432'
-      pg_database:
+      password:
         valueFrom:
           secretKeyRef:
-            name: kong-postgres-dev
-            key: pg_database
-      pg_user:
-        valueFrom:
-          secretKeyRef:
-            name: kong-postgres-dev
-            key: pg_user
-      pg_password:
-        valueFrom:
-          secretKeyRef:
-            name: kong-postgres-dev
-            key: pg_password
+            name: kong-enterprise-superuser-password #CHANGEME
+            key: password #CHANGEME
+      admin_api_uri: "https://admin-api.kong.db-api.dsawsnprd.massmutual.com"
+      admin_gui_url: "https://admin.kong.db-api.dsawsnprd.massmutual.com"
+      portal_api-url: "https://dev-portal-api.kong.db-api.dsawsnprd.massmutual.com"
+      portal_gui_host: "dev-portal.kong.db-api.dsawsnprd.massmutual.com"
+      portal_gui_protocol: "https"
+      # pg_host: kong-dev-instance-1.cxctrb8czfb4.us-east-1.rds.amazonaws.com
+      # pg_port: '5432'
+      # pg_database:
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: kong-postgres-dev
+      #       key: pg_database
+      # pg_user:
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: kong-postgres-dev
+      #       key: pg_user
+      # pg_password:
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: kong-postgres-dev
+      #       key: pg_password
 
     ingressController:
       enabled: false
       installCRDs: false
 
+    admin:
+      enabled: true
+
+    portal:
+      enabled: true
+
+    postgresql:
+      enabled: true
+      postgresqlUsername: kong
+      postgresqlDatabase: kong
+      service:
+        port: 5432
+
     enterprise:
       enabled: true
       license_secret: kong-enterprise-license
-
-    portal:
-      enabled: false
-
-    portalapi:
-      enabled: false
-
-    manager:
-      enabled: false
-
-    proxy:
-      annotations:
-        service.beta.kubernetes.io/aws-load-balancer-type: nlb
-        service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: owner=APIP,environment=kube
-        service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
-        service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '300'
-        service.beta.kubernetes.io/aws-load-balancer-internal: 10.0.0.0/8
-        service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
-        service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:528214016699:certificate/5f70dc84-c827-4899-80b2-2fe38cb459a1
-        service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
+      portal:
+        enabled: true
+      rbac:
+        enabled: true
+        admin_gui_auth: basic-auth
+        # If RBAC is enabled, this Secret must contain an admin_gui_session_conf key
+        # The key value must be a secret configuration, following the example at
+        # https://docs.konghq.com/enterprise/latest/kong-manager/authentication/sessions
+        session_conf_secret: kong-session-config
