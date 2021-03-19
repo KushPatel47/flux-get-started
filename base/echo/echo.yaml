@@ -5,7 +5,7 @@ metadata:
     app: echo
   name: echo
   annotations:
-    fluxcd.io/ignore: "false"
+    fluxcd.io/ignore: "true"
   namespace: demo
 spec:
   ports:
@@ -27,7 +27,8 @@ metadata:
     app: echo
   name: echo
   annotations:
-    fluxcd.io/ignore: "false"
+    fluxcd.io/ignore: "true"
+    demo-annotation: testValue
   namespace: demo
 spec:
   replicas: 1
