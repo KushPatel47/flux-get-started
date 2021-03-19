@@ -28,7 +28,6 @@ metadata:
   name: echo
   annotations:
     fluxcd.io/ignore: "true"
-    demo-annotation: testValue
   namespace: demo
 spec:
   replicas: 1
