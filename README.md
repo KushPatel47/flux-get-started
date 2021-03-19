@@ -1,4 +1,4 @@
-# flux-local-minikube
+# flux-minikube-local
 A repository that provides an introduction to using [Flux](https://docs.fluxcd.io/en/1.21.1/introduction/) on a Kubernetes (K8s) cluster to install/maintain core components.
 
 ## Table of Contents
