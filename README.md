@@ -8,7 +8,7 @@ A repository that provides an introduction to using [Flux](https://docs.fluxcd.i
   * [1. Prepare Deployment Files](#1-Prepare-Deployment-Files)
   * [2. Create Kong Secrets](#2-Create-Kong-Secrets)
   * [3. Install Flux & Helm Operator](#3-Install-Flux-&-Helm-Operator)
-  * [4. (Alternatively) Deploy Jenkins & Kong with Kustomize](#4-(Alternatively)-Deploy-Jenkins-&-Kong-with-Kustomize)
+  * [4. (Alternatively) Deploy Jenkins & Kong with Kustomize](#4-Alternatively-Deploy-Jenkins-&-Kong-with-Kustomize)
 * [Commiting Changes for Flux](#Commiting-Changes)
 * [Jenkins](#Jenkins)
 * [Kong](#Kong)
@@ -164,7 +164,7 @@ This deployment specified the NodePort to use for each component. To access Kong
 
 If you have trouble logging in using `kong_admin` and the superuser password we configured earlier, it may because your browser warns of a privacy issue accessing the Admin API. To fix this, visit the Admin API at NodePort `32444` in your browser and allow the connection. Now, you can try logging in again.
 
-***You will need to disconnect from the VPN while running the following `minikube tunnel` command to avoid networking issues.***
+***You will need to disconnect from the VPN while running the following*** `minikube tunnel` ***command to avoid networking issues.***
 
 This deployment of Kong also has the `kong-kong-kong-proxy` service as a LoadBalancer. Currently, the `EXTERNAL-IP` of this service will show `<pending>`. To populate this with an IP, in a separate Terminal window, run the following command:
 ```
@@ -184,10 +184,12 @@ For more information on accessing apps on minikube, visit the [minikube document
 Follow these links for more details about all the resources used in this project.
 ### Kubernetes & minikube
 * [Intro to Kubernetes by Jon Ellenberger](https://github.com/massmutual/intro-to-kubernetes)
-* [Accessing apps on minikube](https://minikube.sigs.k8s.io/docs/handbook/accessing/)
+* [Accessing Apps on minikube](https://minikube.sigs.k8s.io/docs/handbook/accessing/)
 ### Flux
 * [Introducing Flux](https://docs.fluxcd.io/en/1.21.1/introduction/)
-  * [How to bootstrap Flux using Kustomize](https://docs.fluxcd.io/en/1.21.1/tutorials/get-started-kustomize/)
+  * [How to Bootstrap Flux using Kustomize](https://docs.fluxcd.io/en/1.21.1/tutorials/get-started-kustomize/)
+  * [.flux.yaml File Overview](https://docs.fluxcd.io/en/latest/references/fluxyaml-config-files/)
+
 ### Kustomize
 * [Overview of Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
 * [Kustomize Examples](https://github.com/kubernetes-sigs/kustomize/tree/master/examples)
