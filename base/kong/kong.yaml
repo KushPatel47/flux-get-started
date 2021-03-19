@@ -21,10 +21,10 @@ spec:
           secretKeyRef:
             name: kong-enterprise-superuser-password #CHANGEME
             key: password #CHANGEME
-      admin_api_uri: "https://192.168.64.38:32444"
-      admin_gui_url: "https://192.168.64.38:32445"
-      portal_api-url: "https://192.168.64.38:32447"
-      portal_gui_host: "192.168.64.38:32446"
+      admin_api_uri: "https://<MINIKUBE-IP>:32444"
+      admin_gui_url: "https://<MINIKUBE-IP>:32445"
+      portal_api-url: "https://<MINIKUBE-IP>:32447"
+      portal_gui_host: "<MINIKUBE-IP>:32446"
       portal_gui_protocol: "https"
 
     ingressController:
