@@ -4,6 +4,8 @@ metadata:
   labels:
     app: echo
   name: echo
+  annotations:
+    fluxcd.io/automated: "false"
   namespace: kong
 spec:
   ports:
@@ -24,6 +26,8 @@ metadata:
   labels:
     app: echo
   name: echo
+  annotations:
+    fluxcd.io/automated: "false"
   namespace: kong
 spec:
   replicas: 1
