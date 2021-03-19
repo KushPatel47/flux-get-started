@@ -5,8 +5,8 @@ metadata:
     app: echo
   name: echo
   annotations:
-    fluxcd.io/ignore: "true"
-  namespace: kong
+    fluxcd.io/ignore: "false"
+  namespace: demo
 spec:
   ports:
   - port: 8080
@@ -27,8 +27,8 @@ metadata:
     app: echo
   name: echo
   annotations:
-    fluxcd.io/ignore: "true"
-  namespace: kong
+    fluxcd.io/ignore: "false"
+  namespace: demo
 spec:
   replicas: 1
   selector:
